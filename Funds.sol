@@ -4,7 +4,6 @@ pragma solidity ^0.8.0;
 contract ReceiveEther{
 
     //contracto alcancia
-
     //receive () 
     receive() external payable{}
     //fallback () solo se llama si msg.data esta vacio checar el 
