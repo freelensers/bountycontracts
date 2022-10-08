@@ -21,8 +21,6 @@ contract LentsyFunds is Ownable {
         public
         onlyOwner
     {
-        require(etherBalances[msg.sender] >= amount, "Insufficient balance");
-        etherBalances[msg.sender] = etherBalances[msg.sender].sub(amount);
         recipient.transfer(amount);
     }
 
@@ -36,8 +34,6 @@ contract LentsyFunds is Ownable {
         uint256 amount,
         address recipient
     ) public onlyOwner {
-        require(amount <= tokenBalances[token], "Insufficient balance");
         IERC20(token).transfer(recipient, amount);
-        tokenBalances[token] -= amount;
     }
 }
